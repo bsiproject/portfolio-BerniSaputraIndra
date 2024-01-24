@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/bsiproject.png" width="35" height="35">
+    <title>Galeri Sertifikat</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: black;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: white;
+            font-size: 20px;
+        }
+
+        .back-btn {
+            background-color: crimson;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Galeri Sertifikat</h1>
+    </header>
+
+    <div class="container">
+        <div class="gallery">
+            <img src="images/w1.jpg" alt="Sertifikat 1" onclick="openLightbox('images/w1.jpg')">
+            <img src="images/w2.jpg" alt="Sertifikat 2" onclick="openLightbox('images/w2.jpg')">
+            <img src="images/w3.jpg" alt="Sertifikat 1" onclick="openLightbox('images/w3.jpg')">
+            <img src="images/w4.jpg" alt="Sertifikat 1" onclick="openLightbox('images/w4.jpg')">
+            <img src="images/w5.jpg" alt="Sertifikat 1" onclick="openLightbox('images/w5.jpg')">
+            <img src="images/s1.jpg" alt="Sertifikat 1" onclick="openLightbox('images/s1.jpg')">
+            <!-- Tambahkan gambar sertifikat lainnya di sini -->
+        </div>
+        <div class="gallery-caption">Klik pada gambar untuk melihat versi penuh.</div>
+
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox">
+            <span class="close-btn" onclick="closeLightbox()">&times;</span>
+            <img src="" alt="Full Size Image" id="lightbox-img">
+        </div>
+
+        <!-- Tombol kembali di luar lightbox -->
+        <a class="back-btn" onclick="goBack()">Kembali</a>
+        <script>
+             function goBack() {
+            window.history.back();
+            }   
+        </script>
+    </div>
+     <script>
+        function openLightbox(imageSrc) {
+            document.getElementById('lightbox-img').src = imageSrc;
+            document.getElementById('lightbox').style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

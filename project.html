@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Project</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+    <link rel="icon" type="image/png" href="images/bsiproject.png" width="35" height="35">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #111; /* Warna latar belakang gelap */
+            color: #fff; /* Warna teks */
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #222; /* Warna latar belakang container */
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5); /* Shadow animasi warna crimson */
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery figure {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.8); /* Shadow animasi warna crimson */
+            transition: box-shadow 0.5s ease-in-out; /* Animasi shadow */
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease-in-out; /* Animasi transform */
+            cursor: pointer;
+        }
+
+        .gallery figure:hover img {
+            transform: scale(1.1); /* Skala gambar saat hover */
+        }
+
+        .gallery figure:hover {
+            box-shadow: 0 0 20px rgba(255, 0, 0, 1); /* Shadow warna crimson saat hover */
+        }
+
+        .gallery figcaption {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out, bottom 0.3s ease-in-out; /* Animasi opacity dan posisi bottom */
+            background: rgba(0, 0, 0, 0.7); /* Latar belakang keterangan */
+            text-align: center;
+        }
+
+        .gallery h3, .gallery p {
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+
+        .gallery figure:hover figcaption {
+            opacity: 1; /* Tampilkan keterangan saat hover */
+            bottom: 0; /* Geser ke posisi bottom yang sesuai */
+        }
+
+        /* Tambahan CSS untuk layar penuh */
+        .fullscreen-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fullscreen-img {
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 1); /* Shadow warna crimson */
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 8px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: white;
+            font-size: 20px;
+        }
+
+        .back-btn {
+            background-color: crimson;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Hasil Project</h1>
+    </header>
+
+    <div class="container">
+        <center><p>Bahasa Pemrograman yang saya gunakan untuk semua hasil project saya adalah PHP, CSS & JS. <br>Dan Kebanyakan Framework yang saya gunakan adalah Code Igniter dan Bootstrap.<br>Dan saya selalu menggunakan icon disetiap project dengan Fontawesome.</p></center>
+        <div class="gallery">
+            <figure>
+                <img src="images/p1.jpg" alt="Project 1" onclick="openFullscreen('images/p1.jpg')">
+                <figcaption>
+                    <h3>Sistem Informasi KONI Kuansing</h3>
+                    
+                </figcaption>
+            </figure>
+
+            <figure>
+                <img src="images/p2.jpg" alt="Project 2" onclick="openFullscreen('images/p2.jpg')">
+                <figcaption>
+                    <h3>E-Commerce Kuansing Developer</h3>
+                    
+                </figcaption>
+            </figure>
+
+             <figure>
+                <img src="images/p3.jpg" alt="Project 3" onclick="openFullscreen('images/p3.jpg')">
+                <figcaption>
+                    <h3>Form Login Animasi Bubbles</h3>
+                    
+                </figcaption>
+            </figure>
+
+             <figure>
+                <img src="images/p4.jpg" alt="Project 4" onclick="openFullscreen('images/p4.jpg')">
+                <figcaption>
+                    <h3>E-Commerce BSI Store</h3>
+                    
+                </figcaption>
+            </figure>
+
+             <figure>
+                <img src="images/p5.jpg" alt="Project 5" onclick="openFullscreen('images/p5.jpg')">
+                <figcaption>
+                    <h3>Form Login Animasi Lingkaran</h3>
+                    
+                </figcaption>
+            </figure>
+
+            <figure>
+                <img src="images/p7.jpg" onclick="openFullscreen('images/p7.jpg')">
+                <figcaption>
+                    <h3>Sistem Informasi Pelayanan Dinas Sosial Masyarakat</h3>
+                    
+                </figcaption>
+            </figure>
+
+                <figure>
+                <img src="images/p8.jpg" onclick="openFullscreen('images/p8.jpg')">
+                <figcaption>
+                    <h3>Form Login Fingerprint</h3>
+                    
+                </figcaption>
+            </figure>
+
+            <figure>
+                <img src="images/p9.jpg" onclick="openFullscreen('images/p9.jpg')">
+                <figcaption>
+                    <h3>Sistem Informasi Toko Bunda Laxana</h3>
+                    
+                </figcaption>
+            </figure>
+
+             <figure>
+                <img src="images/p6.jpg" alt="Project 6" onclick="openFullscreen('images/p6.jpg')">
+                <figcaption>
+                    <h3>Website Hasil Ujian Akhir Semester</h3>
+                    
+                </figcaption>
+            </figure>
+            <!-- Tambahkan gambar-gambar lainnya sesuai kebutuhan -->
+        </div>
+         <!-- Lightbox -->
+        <div class="lightbox" id="lightbox">
+            <span class="close-btn" onclick="closeLightbox()">&times;</span>
+            <img alt="Full Size Image" id="lightbox-img">
+        </div>
+        <br><br><br>
+        <!-- Tombol kembali di luar lightbox -->
+            <a class="back-btn" onclick="goBack()">Kembali</a>
+        <script>
+             function goBack() {
+            window.history.back();
+            }   
+        </script>
+    </div>
+
+    <div class="fullscreen-overlay" onclick="closeFullscreen()">
+        <img class="fullscreen-img" id="fullscreen-img">
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        function openFullscreen(imgSrc) {
+            var fullscreenImg = document.getElementById('fullscreen-img');
+            fullscreenImg.src = imgSrc;
+
+            $('.fullscreen-overlay').fadeIn();
+        }
+
+        function closeFullscreen() {
+            $('.fullscreen-overlay').fadeOut();
+        }
+    </script>
+</body>
+</html>
